@@ -10,7 +10,7 @@ const Nav = () => {
             <Toolbar>
             <div style={{ flexGrow: 2, padding: '1rem' }}>
                 <Link href={'/'}>
-                    <Image src={'/../public/amm_logo_250x.png'} alt="AMM Logo" width={250} height={53} />
+                    <Image src={'/../public/amm_logo_250x.png'} alt="AMM Logo" width={250} height={53} priority={true} />
                 </Link>
             </div>
             <Link href={'/about'}>

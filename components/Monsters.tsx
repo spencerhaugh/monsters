@@ -9,7 +9,12 @@ const Monsters = ({ monsters }) => {
         { monsters && 
                 monsters.data.map((monster) => {
                     return (
-                        <MonsterCard monster={ monster } key={ monster.id } />
+                        <Link 
+                            href={`monsters/${monster.id}`} 
+                            key={ monster.id } 
+                        >
+                            <MonsterCard monster={ monster } />
+                        </Link>
                     )
                 })
             }
