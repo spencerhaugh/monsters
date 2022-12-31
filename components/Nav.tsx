@@ -1,4 +1,4 @@
-import { Box, AppBar, Toolbar, IconButton, Typography, Button, Avatar } from '@mui/material';
+import { Box, AppBar, Toolbar, IconButton, Button, Typography, Avatar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,7 +14,9 @@ const Nav = () => {
                 </Link>
             </div>
             <Link href={'/about'}>
-                About Alex!
+                <Button variant='contained' color='info'>
+                    About Alex!
+                </Button>
             </Link>
             <Button color="inherit" variant='outlined' sx={{ ml: 2 }}>Login</Button>
             </Toolbar>
