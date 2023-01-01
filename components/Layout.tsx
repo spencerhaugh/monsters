@@ -1,10 +1,11 @@
 import Paper from '@mui/material/Paper';
 import Head from 'next/head';
 import Nav from './Nav';
+import { UserProvider } from '../lib/authContext';
 
-const Layout = ({ children }) => {
+const Layout = ({ user, loading = false, children }) => {
     return (
-        <>
+        <UserProvider value={{ user, loading }}>
             <Head>
                 <title>Alex Draws Pokemon</title>
                 <meta name="description" content="Quickly drawn Pokemon from memory without reference" />
@@ -22,7 +23,7 @@ const Layout = ({ children }) => {
                     { children }
                 </Paper>
             </main>
-        </>
+        </UserProvider>
     )
 }
 

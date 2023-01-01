@@ -1,11 +1,13 @@
 import Layout from '../../components/Layout';
 import MonsterDetail from '../../components/MonsterDetail';
 import fetcher from '../../lib/api';
+import { useFetchUser } from '../../lib/authContext';
 
 
 const Monster = ({ monster, monsterDetails }) => {
+  const { user, loading } = useFetchUser();
   return (
-    <Layout>
+    <Layout user={ user }>
         <MonsterDetail monster={ monster } monsterDetails={ monsterDetails } />
     </Layout>
   )

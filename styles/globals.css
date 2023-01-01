@@ -42,3 +42,7 @@ a {
 .hidden-image {
   filter: contrast(0%);
 }
+
+.nav-btn {
+  margin-left: 1rem;
+}

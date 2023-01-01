@@ -1,9 +1,11 @@
 import Layout from '../components/Layout';
 import { Link, Paper, Typography } from '@mui/material';
+import { useFetchUser } from '../lib/authContext';
 
 export default function Home() {
+  const { user } = useFetchUser();
   return (
-    <Layout>
+    <Layout user={ user }>
         <Paper 
           elevation={24}
           sx={{ 
