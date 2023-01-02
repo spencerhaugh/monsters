@@ -25,23 +25,31 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                 src={ monsterDetails.sprites.other.dream_world.front_default } 
                 alt={ monster.attributes.name } 
                 width={300} 
-                height={300} 
+                height={300}
+                priority
                 >
             </Image>
             <div style={{ 'display': 'flex', 'flexDirection': 'row' }}>
                 <Avatar src={ monsterDetails.sprites.front_default } sx={{ width: 50, height: 50 }} />
                 <span style={{margin: '1rem'}}>Its { monster.attributes.name }! </span>
             </div>
+            { monster.attributes.imageUrl && 
+                <Image 
+                    src={ monster.attributes.imageUrl }
+                    alt={ monster.attributes.name } 
+                    width={300} 
+                    height={300} 
+                />}
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%' }}>
                 <Button variant='outlined' onClick={() => router.back()}>Back</Button>
                 {
                     user &&
-                    <Button variant='outlined' color='warning' onClick={handleEditButtonClick}>Edit</Button> 
+                    <Button variant='outlined' color='warning' onClick={ handleEditButtonClick }>Edit</Button> 
                 }
             </div>
             {
                 showEditForm &&
-                <EditMonster />
+                <EditMonster monsterId={ monster.id } />
             }
         </Paper>
     )

@@ -13,7 +13,7 @@ const MonstersList = ({ monsters }) => {
     
     const [pageIndex, setPageIndex] = useState(1);
 
-    const { data } = useSwr(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters?pagination[page]=${pageIndex}&pagination[pageSize]=12`, fetcher, { fallbackData: monsters });
+    const { data } = useSwr(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters?sort=id&pagination[page]=${pageIndex}&pagination[pageSize]=12`, fetcher, { fallbackData: monsters });
     const pageTotal = data && data.meta.pagination.pageCount;
 
     return (
@@ -32,7 +32,7 @@ const MonstersList = ({ monsters }) => {
 export default MonstersList;
 
 export async function getStaticProps() {
-    const monstersResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters?pagination[page]=1&pagination[pageSize]=12`);
+    const monstersResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters?sort=id&pagination[page]=1&pagination[pageSize]=12`);
     return {
         props: {
             monsters: monstersResponse,
