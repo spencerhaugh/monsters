@@ -13,20 +13,21 @@ export const MonsterCard = ({ monster }) => {
     const currentMonster = data;
     
     return (
-        <Card sx={{ width: 300, height: 300, padding: '1rem', margin: '1rem'}}  elevation={5}>
-            <CardActionArea>
+        <Card sx={{ width: 120, height: 150, margin: '.5rem'}}  elevation={5}>
+            <CardActionArea sx={{ marginTop: '1rem' }}>
                 <CardMedia
                     className='hidden-image'
                     component="img"
                     image={ currentMonster.sprites.other.dream_world.front_default }
                     // image={ currentMonster.sprites.front_default }
-                    height={200}
+                    height={80}
                     alt={monster.attributes.name}
+                    sx={{ width: 'min-content', margin: '0 auto' }}
                 />
                 <CardContent>
-                <Typography gutterBottom variant="h5" component="div" sx={{ textTransform: 'capitalize' }}>
-                    { monster.attributes.name }
-                </Typography>
+                    <Typography variant="body1" component="div" sx={{ textTransform: 'capitalize', textAlign: 'center' }}>
+                        { monster.attributes.name }
+                    </Typography>
                 </CardContent>
             </CardActionArea>
         </Card>

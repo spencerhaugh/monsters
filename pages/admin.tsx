@@ -1,3 +1,4 @@
+import { Box, Button, Card, Input } from '@mui/material';
 import { useState } from 'react';
 import Layout from '../components/Layout';
 import fetcher from '../lib/api';
@@ -33,33 +34,39 @@ function Admin() {
             }),
             }
         );
-        console.log(responseData)
         setToken(responseData);
     };
 
   return (
     <Layout user={ user }>
-        <form onSubmit={ handleSubmit } className="form-inline">
-            <input
-            type="text"
-            name="identifier"
-            onChange={ handleChange }
-            placeholder="Username"
-            required
-            />
-            <input
-                type="password"
-                name="password"
-                onChange={ handleChange }
-                placeholder="Password"
-                required
-            />
-            <button
-                type="submit"
-            >
-                Login
-            </button>
-        </form>
+        <Box sx={{ width: '300px', height: '300px', margin: '2rem auto' }}>
+            <form onSubmit={ handleSubmit } className="form-inline">
+                <Input
+                    type="text"
+                    name="identifier"
+                    onChange={ handleChange }
+                    placeholder="Username"
+                    sx={{ width: '100%' }}
+                    required
+                />
+                <Input
+                    type="password"
+                    name="password"
+                    onChange={ handleChange }
+                    placeholder="Password"
+                    sx={{ width: '100%', marginTop: '.5rem' }}
+                    required
+                />
+                <Button
+                    variant='outlined'
+                    type="submit"
+                    sx={{ margin: '1rem auto' }}
+
+                >
+                    Login
+                </Button>
+            </form>
+        </Box>
     </Layout>
 
   )

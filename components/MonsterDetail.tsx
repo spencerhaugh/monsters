@@ -4,6 +4,8 @@ import Paper from '@mui/material/Paper';
 import Image from 'next/image';
 import { useFetchUser } from '../lib/authContext';
 import { useState } from 'react';
+import EditMonster from './EditMonster';
+import fetcher from '../lib/api';
 
 const MonsterDetail = ({ monster, monsterDetails }) => {
 
@@ -11,7 +13,7 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
 
     const { user } = useFetchUser();
     const [ showEditForm, setShowEditForm ] = useState(false);
-
+    
     const handleEditButtonClick = () => {
         setShowEditForm(!showEditForm);
     }
@@ -39,7 +41,7 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
             </div>
             {
                 showEditForm &&
-                <p>edit away!</p>
+                <EditMonster />
             }
         </Paper>
     )
