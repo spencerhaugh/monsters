@@ -44,10 +44,10 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                     user &&
                     <Button 
                         variant='outlined' 
-                        color='warning' 
+                        color={ showEditForm ? 'error' : 'warning'} 
                         onClick={ handleEditButtonClick }
                     >
-                        { showEditForm ? 'Close' : 'Edit' }
+                        { showEditForm ? 'Cancel' : 'Add Art' }
                     </Button> 
                 }
             </div>

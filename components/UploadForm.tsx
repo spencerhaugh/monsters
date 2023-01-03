@@ -1,12 +1,12 @@
-import { PhotoCamera } from '@mui/icons-material'
+import { InsertPhoto } from '@mui/icons-material'
 import { Button } from '@mui/material'
 
 const UploadForm = ({ image, handleUploadToClient, handleUploadToServer }) => {
     return (
         <>
             <Button variant="outlined" component="label">
-                Add Image
-                <PhotoCamera sx={{ ml: '.5rem' }}/>
+                Select Artwork
+                <InsertPhoto sx={{ ml: '.5rem' }}/>
                 <input 
                     hidden accept="image/*" 
                     required 

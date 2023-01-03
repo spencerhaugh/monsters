@@ -55,22 +55,17 @@ const EditMonster = ({ monsterId }) => {
             })
     }
 
-    const removeFileFromUploader = () => {
-        setImage('');
-        setImageName('');
-    }
-
     return (
-        <div className='edit-monster-form'>
+        <form className='edit-monster-form'>
             <UploadForm 
                 image={ image } 
                 handleUploadToClient={ handleUploadToClient } 
                 handleUploadToServer={ handleUploadToServer } 
             />
             { imageName && 
-                <UploadFileConfirm image={ image } imageName={ imageName } handleRemove={ removeFileFromUploader } />
+                <UploadFileConfirm imageName={ imageName } />
             }
-        </div>
+        </form>
     )
 }
 
