@@ -1,12 +1,23 @@
-import Typography from '@mui/material/Typography'
+import { IconButton, Typography } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-const UploadFileConfirm = ({ imageName }) => {
+const UploadFileConfirm = ({ image, imageName, handleRemove }) => {
     return (
-        <div className='file-name'>
-            <Typography variant='h6'>
-                Ready to upload: { imageName }
-            </Typography>
-        </div>
+        <>
+            <div className='file-name'>
+                <Typography variant='h6'>
+                    Ready to upload: { imageName }
+                </Typography>
+                <IconButton 
+                    color='error' 
+                    disabled={ !image } 
+                    sx={{ ml: '.5rem' }} 
+                    onClick={ handleRemove }
+                >
+                    <DeleteIcon />
+                </IconButton>
+            </div>
+        </>
     )
 }
 

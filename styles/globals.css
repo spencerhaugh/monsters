@@ -47,11 +47,22 @@ a {
   margin-left: 1rem;
 }
 
+.edit-options-container {
+  margin-top: 1rem;
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-around; 
+  width: 100%;
+}
+
 .edit-monster-form {
   margin-top: 2rem;
   padding-top: 2rem;
 }
 
 .file-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-top: .5rem;
 }

@@ -5,12 +5,10 @@ import Image from 'next/image';
 import { useFetchUser } from '../lib/authContext';
 import { useState } from 'react';
 import EditMonster from './EditMonster';
-import fetcher from '../lib/api';
 
 const MonsterDetail = ({ monster, monsterDetails }) => {
 
     const router = useRouter();
-
     const { user } = useFetchUser();
     const [ showEditForm, setShowEditForm ] = useState(false);
     
@@ -40,16 +38,24 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                     width={300} 
                     height={300} 
                 />}
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%' }}>
+            <div className='edit-options-container'>
                 <Button variant='outlined' onClick={() => router.back()}>Back</Button>
                 {
                     user &&
-                    <Button variant='outlined' color='warning' onClick={ handleEditButtonClick }>Edit</Button> 
+                    <Button 
+                        variant='outlined' 
+                        color='warning' 
+                        onClick={ handleEditButtonClick }
+                    >
+                        { showEditForm ? 'Close' : 'Edit' }
+                    </Button> 
                 }
             </div>
             {
                 showEditForm &&
-                <EditMonster monsterId={ monster.id } />
+                <div>
+                    <EditMonster monsterId={ monster.id } />
+                </div>
             }
         </Paper>
     )

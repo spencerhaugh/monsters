@@ -19,7 +19,7 @@ const EditMonster = ({ monsterId }) => {
         };
     }
 
-    const handleUploadToServer = async (e) => {
+    const handleUploadToServer = async (e: Event) => {
         e.preventDefault();
 
         const formData = new FormData();
@@ -31,9 +31,6 @@ const EditMonster = ({ monsterId }) => {
             .then((response) => {
                 const imageUrl = response.data[0].url;
                 const imageId = response.data[0].id;
-                
-                console.log('CLOUDINARY RESPONSE: ', response);
-                console.log('IMAGE ID: ', imageUrl);
 
                 fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters/${monsterId}`, { 
                     method: 'PUT',
@@ -49,7 +46,6 @@ const EditMonster = ({ monsterId }) => {
                 })
                     .then((response) => {
                         Router.reload();
-                        console.log('SUCCESS!!')
                     })
                     .catch((err) => {
                         console.error("Aw, beans. Something went wrong.", err);
@@ -57,6 +53,11 @@ const EditMonster = ({ monsterId }) => {
             }).catch((err) => {
                 console.error("Aw snap, something went wrong!", err);
             })
+    }
+
+    const removeFileFromUploader = () => {
+        setImage('');
+        setImageName('');
     }
 
     return (
@@ -67,7 +68,7 @@ const EditMonster = ({ monsterId }) => {
                 handleUploadToServer={ handleUploadToServer } 
             />
             { imageName && 
-                <UploadFileConfirm imageName={ imageName } />
+                <UploadFileConfirm image={ image } imageName={ imageName } handleRemove={ removeFileFromUploader } />
             }
         </div>
     )

@@ -7,9 +7,20 @@ const UploadForm = ({ image, handleUploadToClient, handleUploadToServer }) => {
             <Button variant="outlined" component="label">
                 Add Image
                 <PhotoCamera sx={{ ml: '.5rem' }}/>
-                <input hidden accept="image/*" multiple type="file" name="image" required onChange={ handleUploadToClient } />
+                <input 
+                    hidden accept="image/*" 
+                    required 
+                    type="file" 
+                    name="image"  
+                    onChange={ handleUploadToClient } 
+                />
             </Button>
-            <Button variant='contained' onClick={ handleUploadToServer } sx={{ ml: '.5rem' }} disabled={ !image }>
+            <Button variant='contained'
+                color='success'
+                onClick={ handleUploadToServer } 
+                sx={{ ml: '.5rem' }} 
+                disabled={ !image }
+            >
                 Upload!
             </Button>
         </>
