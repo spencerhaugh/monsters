@@ -16,10 +16,9 @@ export const MonsterCard = ({ monster }) => {
         <Card sx={{ width: 120, height: 150, margin: '.5rem'}}  elevation={5}>
             <CardActionArea sx={{ marginTop: '1rem' }}>
                 <CardMedia
-                    className='hidden-image'
+                    className={ monster.attributes.imageUrl ?? 'hidden-image' }
                     component="img"
-                    image={ currentMonster.sprites.other.dream_world.front_default }
-                    // image={ currentMonster.sprites.front_default }
+                    image={ monster.attributes.imageUrl || currentMonster.sprites.other.dream_world.front_default }
                     height={80}
                     alt={monster.attributes.name}
                     sx={{ width: 'min-content', margin: '0 auto' }}
