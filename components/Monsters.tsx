@@ -8,14 +8,14 @@ const Monsters = ({ monsters }) => {
                 { monsters.data.map((monster) => {
                     return (
                         <Link 
-                        href={`monsters/${monster.id}`} 
-                        key={ monster.id } 
-                        >
-                            <MonsterCard monster={ monster } />
-                        </Link>
-                    );
-                })
-            }
+                            href={`monsters/${monster.id}`} 
+                            key={ monster.id } 
+                            >
+                                <MonsterCard monster={ monster } />
+                            </Link>
+                        );
+                    })
+                }
             </div>
         </>
     )
