@@ -6,12 +6,13 @@ import Monsters from '../components/Monsters';
 import { Paper, Typography } from '@mui/material';
 import Pagination from '../components/Pagination';
 import { useFetchUser } from '../lib/authContext';
+import usePageIndexState from '../hooks/pageIndex';
 
 
 const MonstersList = ({ monsters }) => {
     const { user } = useFetchUser();
     
-    const [pageIndex, setPageIndex] = useState(1);
+    const [pageIndex, handlePageIncrement, handlePageDecrement] = usePageIndexState();
 
     const { data } = useSwr(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters?sort=id&pagination[page]=${pageIndex}&pagination[pageSize]=50`, fetcher, { fallbackData: monsters });
     const pageTotal = data && data.meta.pagination.pageCount;
@@ -32,7 +33,12 @@ const MonstersList = ({ monsters }) => {
                 </Typography>
                 <div className="monster-nav-list">
                     <Monsters monsters={ data } />
-                    <Pagination pageIndex={ pageIndex } setPageIndex={ setPageIndex } pageTotal={ pageTotal } />
+                    <Pagination 
+                        pageIndex={ pageIndex } 
+                        handlePageIncrement={ handlePageIncrement } 
+                        handlePageDecrement={ handlePageDecrement } 
+                        pageTotal={ pageTotal } 
+                    />
                 </div>
             </Paper>
         </Layout>
