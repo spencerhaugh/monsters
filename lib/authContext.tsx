@@ -20,7 +20,7 @@ export const UserProvider = ({ value, children }) => {
 
     useEffect(() => {
         if (!userState && user) {
-        userState = user;
+            userState = user;
         }
     }, []);
 
@@ -41,20 +41,20 @@ export const useFetchUser = () => {
 
     useEffect(() => {
         if (userState !== undefined) {
-        return;
+            return;
         }
 
         let isMounted = true;
         const resolveUser = async () => {
-        const user = await getUserFromLocalCookie();
-        if (isMounted) {
-            setUser({ user, loading: false });
+            const user = await getUserFromLocalCookie();
+            if (isMounted) {
+                setUser({ user, loading: false });
         }
         };
         resolveUser();
 
         return () => {
-        isMounted = false;
+            isMounted = false;
         };
     }, []);
 
