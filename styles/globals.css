@@ -43,6 +43,18 @@ a {
   padding: 2rem;
 }
 
+.monster-detail-art-container {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+.monster-detail-memory-container,
+.monster-detail-original-container {
+  margin: 0 1rem;
+  padding: 1.5rem;
+}
+
 .hidden-image {
   filter: contrast(0%);
 }

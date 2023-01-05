@@ -19,7 +19,15 @@ const MonstersList = ({ monsters }) => {
     return (
         <Layout user={ user }>
             <Paper>
-                <Typography variant='h2' sx={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+                <Typography variant='h3' sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    fontWeight: 'bold', 
+                    textTransform: 'uppercase',
+                    textAlign: 'center',
+                    marginTop: '1rem',
+                    padding: '0 1rem'
+                }}>
                     Pocket Monsters From Memory
                 </Typography>
                 <div className="monster-nav-list">

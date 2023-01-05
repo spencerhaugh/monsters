@@ -1,6 +1,6 @@
 import Paper from '@mui/material/Paper';
 import Head from 'next/head';
-import Nav from './Nav';
+import Nav from './nav/Nav';
 import { UserProvider } from '../lib/authContext';
 
 const Layout = ({ user, loading = false, children }) => {
