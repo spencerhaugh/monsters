@@ -1,10 +1,11 @@
 import { useRouter } from 'next/router'
-import { Avatar, Button, Collapse } from '@mui/material';
+import { Avatar, Button, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Image from 'next/image';
 import { useFetchUser } from '../lib/authContext';
 import { useState } from 'react';
 import EditMonster from './EditMonster';
+import { photoCloudRepo } from '../utils/utils';
 
 const MonsterDetail = ({ monster, monsterDetails }) => {
 
@@ -21,11 +22,11 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
             <div className='monster-detail-art-container'>
                 { monster.attributes.imageUrl ? 
                     <Paper elevation={5} className='monster-detail-memory-container'>
-                        <div style={{ margin: '1rem' }}>
+                        <Typography variant='h6' sx={{ margin: '1rem' }}>
                             From memory
-                        </div>
+                        </Typography>
                             <Image 
-                                src={ monster.attributes.imageUrl }
+                                src={ `${ photoCloudRepo }${ monster.attributes.imageId }.png` }
                                 alt={ monster.attributes.name }
                                 width={300} 
                                 height={300} 
@@ -33,9 +34,9 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                     </Paper> : ''
                 }
                 <Paper elevation={5} className='monster-detail-original-container'>
-                    <div style={{ margin: '1rem' }}>
+                    <Typography variant='h6' sx={{ margin: '1rem' }}>
                         Official Artwork
-                    </div>
+                    </Typography>
                     <Image 
                         src={ monsterDetails.sprites.other.dream_world.front_default } 
                         alt={ monster.attributes.name } 
@@ -67,9 +68,7 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
             </div>
             {
                 showEditForm &&
-                <div>
                     <EditMonster monsterId={ monster.id } />
-                </div>
             }
         </Paper>
     )

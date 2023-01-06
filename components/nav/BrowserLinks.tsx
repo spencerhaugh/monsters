@@ -10,7 +10,7 @@ const BrowserLinks = ({ pages }) => {
         >
             {
                 pages.map((page) => (
-                    <Link href={`/${page.href}`} key={ page.title }>
+                    <Link href={`${page.href}`} key={ page.title }>
                         <Button className='nav-btn' variant='contained' color='info'>
                             { page.title }
                         </Button>

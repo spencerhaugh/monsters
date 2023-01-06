@@ -39,7 +39,7 @@ const MobileLinks = ({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu, pages
                 >
                     {pages.map((page) => (
                         <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                            <Link href={`/${page.href}`} key={ page.title }>
+                            <Link href={`${page.href}`} key={ page.title }>
                                 <Typography textAlign="center">{page.title}</Typography>
                             </Link>
                         </MenuItem>

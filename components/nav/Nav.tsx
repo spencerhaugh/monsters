@@ -39,7 +39,7 @@ const Nav = () => {
                     >
                         <Link href={'/'}>
                             <Image 
-                                src={'/../public/amm_logo_250x.png'} 
+                                src={'/amm_logo_250x.png'} 
                                 alt="AMM Logo" 
                                 width={250} 
                                 height={53} 
