@@ -10,9 +10,9 @@ const Monsters = ({ monsters }) => {
                         <Link 
                             href={`monsters/${monster.id}`} 
                             key={ monster.id } 
-                            >
-                                <MonsterCard monster={ monster } />
-                            </Link>
+                        >
+                            <MonsterCard monster={ monster } />
+                        </Link>
                         );
                     })
                 }
