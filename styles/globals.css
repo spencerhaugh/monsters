@@ -63,6 +63,13 @@ a {
   margin-left: 1rem;
 }
 
+.search-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
 .edit-options-container {
   margin-top: 1rem;
   display: flex; 

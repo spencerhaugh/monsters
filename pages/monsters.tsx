@@ -20,7 +20,7 @@ const MonstersList = ({ monsters }) => {
 
     const handleSelectBySearch = (monsterId) => {
         if (!monsterId) return;
-        Router.push(`/monsters/${monsterId}`)
+        Router.push(`/monsters/${monsterId}`);
     }
 
     return (
