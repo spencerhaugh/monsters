@@ -15,8 +15,10 @@ const MonstersList = ({ monsters }) => {
     
     const [pageIndex, handlePageIncrement, handlePageDecrement] = usePageIndexState();
 
-    const { data } = useSwr(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters?sort=id&pagination[page]=${pageIndex}&pagination[pageSize]=50`, fetcher, { fallbackData: monsters });
-    const pageTotal = data && data.meta.pagination.pageCount;
+    const monsterList = useSwr(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters?sort=id&pagination[page]=${pageIndex}&pagination[pageSize]=100`, fetcher, { fallbackData: monsters });
+    const pageTotal = monsterList.data && monsterList.data.meta.pagination.pageCount;
+
+    const searchListData = useSwr(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters`, fetcher, { fallbackData: monsters })
 
     const handleSelectBySearch = (monsterId) => {
         if (!monsterId) return;
@@ -37,9 +39,9 @@ const MonstersList = ({ monsters }) => {
                 }}>
                     Pocket Monsters From Memory
                 </Typography>
-                <Search monsters={ data } handleSelectBySearch={ handleSelectBySearch } />
+                <Search monsters={ searchListData.data } handleSelectBySearch={ handleSelectBySearch } />
                 <div className="monster-nav-list">
-                    <Monsters monsters={ data } />
+                    <Monsters monsters={ monsterList.data } />
                     <Pagination 
                         pageIndex={ pageIndex } 
                         handlePageIncrement={ handlePageIncrement } 
@@ -55,7 +57,7 @@ const MonstersList = ({ monsters }) => {
 export default MonstersList;
 
 export async function getStaticProps() {
-    const monstersResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters?sort=id&pagination[page]=1&pagination[pageSize]=50`);
+    const monstersResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters?sort=id&pagination[page]=1&pagination[pageSize]=100`);
     return {
         props: {
             monsters: monstersResponse,

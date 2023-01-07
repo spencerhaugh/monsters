@@ -12,7 +12,6 @@ const Search = ({ monsters, handleSelectBySearch }) => {
         const selectedMonster = monsters.data.filter((m) => m.attributes.name === searchValue)
         if (!selectedMonster) return;
 
-        console.log('MONSTER??', selectedMonster[0].id);
         handleSelectBySearch(selectedMonster[0].id);
     }
 
@@ -21,6 +20,7 @@ const Search = ({ monsters, handleSelectBySearch }) => {
             <Stack spacing={2} sx={{ width: 300 }}>
                 <Autocomplete
                     id="nav-search"
+                    freeSolo
                     disableClearable
                     options={ monsters.data.map((monster) => monster.attributes.name) }
                     inputValue={ searchInputValue }
@@ -38,7 +38,9 @@ const Search = ({ monsters, handleSelectBySearch }) => {
                     )}
                 />
             </Stack>
-            <Button variant='contained' type='submit' >GO!</Button>
+            <Button variant='contained' type='submit'>
+                Find a pokemon
+            </Button>
         </form>
         )
 }
