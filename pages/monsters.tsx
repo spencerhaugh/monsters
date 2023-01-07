@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Layout from '../components/Layout';
 import fetcher from '../lib/api';
 import useSwr from 'swr';
@@ -7,6 +6,8 @@ import { Paper, Typography } from '@mui/material';
 import Pagination from '../components/Pagination';
 import { useFetchUser } from '../lib/authContext';
 import usePageIndexState from '../hooks/pageIndex';
+import Search from '../components/nav/Search';
+import Router from 'next/router';
 
 
 const MonstersList = ({ monsters }) => {
@@ -16,6 +17,11 @@ const MonstersList = ({ monsters }) => {
 
     const { data } = useSwr(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters?sort=id&pagination[page]=${pageIndex}&pagination[pageSize]=50`, fetcher, { fallbackData: monsters });
     const pageTotal = data && data.meta.pagination.pageCount;
+
+    const handleSelectBySearch = (monsterId) => {
+        if (!monsterId) return;
+        Router.push(`/monsters/${monsterId}`);
+    }
 
     return (
         <Layout user={ user }>
@@ -31,6 +37,7 @@ const MonstersList = ({ monsters }) => {
                 }}>
                     Pocket Monsters From Memory
                 </Typography>
+                <Search monsters={ data } handleSelectBySearch={ handleSelectBySearch } />
                 <div className="monster-nav-list">
                     <Monsters monsters={ data } />
                     <Pagination 
