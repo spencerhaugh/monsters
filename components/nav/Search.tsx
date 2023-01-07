@@ -10,7 +10,7 @@ const Search = ({ monsters, handleSelectBySearch }) => {
         e.preventDefault();
 
         const selectedMonster = monsters.data.filter((m) => m.attributes.name === searchValue)
-        if (!selectedMonster) return;
+        if (!selectedMonster[0]?.id) return;
 
         handleSelectBySearch(selectedMonster[0].id);
     }
@@ -20,7 +20,6 @@ const Search = ({ monsters, handleSelectBySearch }) => {
             <Stack spacing={2} sx={{ width: 300 }}>
                 <Autocomplete
                     id="nav-search"
-                    freeSolo
                     disableClearable
                     options={ monsters.data.map((monster) => monster.attributes.name) }
                     inputValue={ searchInputValue }
