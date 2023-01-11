@@ -63,11 +63,28 @@ a {
   margin-left: 1rem;
 }
 
-.search-field {
+.search-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 1rem;
+  margin: 1rem auto;
+}
+
+@media (max-width: 600px) {
+  .search-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+  .search-button, .search-field {
+    width: 100%;
+    max-width: 400px;
+  }
+  .search-button {
+    padding: 1rem 0;
+  }
+  
 }
 
 .edit-options-container {

@@ -1,5 +1,6 @@
-import { Stack, Autocomplete, TextField, Button } from '@mui/material'
-import { useState } from 'react'
+import { Stack, Autocomplete, TextField, Button } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import { useState } from 'react';
 
 const Search = ({ monsters, handleSelectBySearch }) => {
 
@@ -16,10 +17,11 @@ const Search = ({ monsters, handleSelectBySearch }) => {
     }
 
     return (
-        <form className='search-field' onSubmit={ handleSubmit }>
-            <Stack spacing={2} sx={{ width: 300 }}>
+        <form className='search-container' onSubmit={ handleSubmit }>
+            <Stack spacing={2} sx={{ width: 400 }}>
                 <Autocomplete
                     id="nav-search"
+                    className='search-field'
                     disableClearable
                     options={ monsters.data.map((monster) => monster.attributes.name) }
                     inputValue={ searchInputValue }
@@ -37,9 +39,10 @@ const Search = ({ monsters, handleSelectBySearch }) => {
                     )}
                 />
             </Stack>
-            <Button variant='contained' type='submit'>
-                Find a pokemon
-            </Button>
+                <Button className='search-button' variant='contained' type='submit'>
+                    { searchValue ? `Go to ${searchValue}` : 'Find a pokemon' }
+                    <SearchIcon sx={{ ml: 1 }} />
+                </Button>
         </form>
         )
 }
