@@ -47,19 +47,29 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                     </Image>
                 </Paper>
             </div>
-            <div className='monster-detail-title' 
-                style={{ 'display': 'flex', 'flexDirection': 'row' }}
-            >
-                <Avatar src={ monsterDetails.sprites.front_default } sx={{ width: 50, height: 50 }} />
-                <span style={{margin: '1rem'}}>Its { monster.attributes.name }! </span>
-            </div>
+            <section className='monster-detail-info'>
+                <div className='monster-detail-title' 
+                    style={{ 'display': 'flex', 'flexDirection': 'row', 'justifyContent': 'center', 'alignItems': 'center' }}
+                    >
+                    <Avatar src={ monsterDetails.sprites.front_default } sx={{ width: 70, height: 70 }} />
+                    <h3 style={{ margin: '1rem' }}>It's { monster.attributes.name }! </h3>
+                </div>
+                <ul className='monster-detail-stats'>
+                    <li>
+                        Height: { monsterDetails.height / 10 } meter(s)
+                    </li>
+                    <li>
+                        Weight: { monsterDetails.weight / 10 } kg
+                    </li>
+                </ul>
+            </section>
             <div className='edit-options-container'>
                 <Button variant='outlined' onClick={() => router.back()}>Back</Button>
                 {
                     user &&
                     <Button 
                         variant='outlined' 
-                        color={ showEditForm ? 'error' : 'warning'} 
+                        color={ showEditForm ? 'error' : 'warning' } 
                         onClick={ handleEditButtonClick }
                     >
                         { showEditForm ? 'Cancel' : 'Add Art' }
