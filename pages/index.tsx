@@ -1,11 +1,7 @@
-import Layout from '../components/Layout';
 import { Link, Paper, Typography } from '@mui/material';
-import { useFetchUser } from '../lib/authContext';
 
 export default function Home() {
-  const { user } = useFetchUser();
   return (
-    <Layout user={ user }>
         <Paper 
           elevation={24}
           sx={{ 
@@ -20,6 +16,5 @@ export default function Home() {
             <Typography variant='h2'>Drawing Pokemon From Memory Without Reference</Typography>
           </Link>
         </Paper>
-    </Layout>
   )
 }

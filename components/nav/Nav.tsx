@@ -1,4 +1,6 @@
 import { Box, AppBar, Toolbar, Button } from '@mui/material';
+import { useDarkMode } from 'next-dark-mode';
+import DarkModeToggle from 'react-dark-mode-toggle';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -10,6 +12,7 @@ import BrowserLinks from './BrowserLinks';
 
 const Nav = () => {
     const { user, loading } = useFetchUser();
+    const { darkModeActive, switchToDarkMode, switchToLightMode } = useDarkMode();
 
     const pages = [{ title: 'Monsters', href: '/monsters'}, { title: 'About Alex!', href: '/about' }];
 
@@ -74,6 +77,15 @@ const Nav = () => {
                             Logout
                         </Button>
                     }
+                    <DarkModeToggle
+                        className='dark-mode-toggle'
+                        size={50}
+                        speed={2}
+                        checked={ darkModeActive }
+                        onChange={(isDarkMode) =>
+                            isDarkMode ? switchToDarkMode() : switchToLightMode()
+                        }
+                    />
                 </Toolbar>
             </AppBar>
         </Box>

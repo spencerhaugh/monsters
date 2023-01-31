@@ -1,9 +1,7 @@
-import { Box, Button, Card, Input } from '@mui/material';
+import { Box, Button, Input } from '@mui/material';
 import { useState } from 'react';
-import Layout from '../components/Layout';
 import fetcher from '../lib/api';
 import { setToken } from '../lib/auth';
-import { useUser } from '../lib/authContext';
 
 function Admin() {
 
@@ -11,8 +9,6 @@ function Admin() {
         identifier: '',
         password: '',
     });
-
-    const { user, loading } = useUser();
 
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -37,8 +33,7 @@ function Admin() {
         setToken(responseData);
     };
 
-  return (
-    <Layout user={ user }>
+    return (
         <Box sx={{ width: '300px', height: '300px', margin: '2rem auto' }}>
             <form onSubmit={ handleSubmit } className="form-inline">
                 <Input
@@ -67,7 +62,6 @@ function Admin() {
                 </Button>
             </form>
         </Box>
-    </Layout>
 
   )
 }
