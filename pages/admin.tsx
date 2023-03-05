@@ -16,21 +16,24 @@ function Admin() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const responseData = await fetcher(
-            `${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local`,
-            {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                identifier: data.identifier,
-                password: data.password,
-            }),
-            }
-        );
-        setToken(responseData);
+        try {
+            const responseData = await fetcher(
+                `${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        identifier: data.identifier,
+                        password: data.password,
+                    }),
+                }
+            );
+            setToken(responseData);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (

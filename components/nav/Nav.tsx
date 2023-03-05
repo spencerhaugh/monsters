@@ -46,8 +46,7 @@ const Nav = () => {
                                 alt="AMM Logo" 
                                 width={250} 
                                 height={53} 
-                                unoptimized
-                                priority={true} 
+                                priority
                             />
                         </Link>
                     </Box>

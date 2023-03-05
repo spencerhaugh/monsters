@@ -11,7 +11,7 @@ export default function About() {
                     alt={'Self portrait'} 
                     width={300} 
                     height={300}
-                    unoptimized
+                    priority
                 />
             </Paper>
             <main className='bio-main'>

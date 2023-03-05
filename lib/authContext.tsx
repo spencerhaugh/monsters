@@ -39,19 +39,20 @@ export const useFetchUser = () => {
         loading: userState === undefined,
     });
 
+    const resolveUser = async (isMounted) => {
+        const user = await getUserFromLocalCookie();
+        if (isMounted) {
+            setUser({ user, loading: false });
+    }
+    };
+
     useEffect(() => {
         if (userState !== undefined) {
             return;
         }
 
         let isMounted = true;
-        const resolveUser = async () => {
-            const user = await getUserFromLocalCookie();
-            if (isMounted) {
-                setUser({ user, loading: false });
-        }
-        };
-        resolveUser();
+        resolveUser(isMounted);
 
         return () => {
             isMounted = false;

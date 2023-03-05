@@ -53,7 +53,7 @@ export const getIdFromLocalCookie = () => {
             Authorization: `Bearer ${jwt}`,
         },
         }).then((data) => {
-        return data.id;
+            return data.id;
         });
     } else {
         return;
