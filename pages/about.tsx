@@ -6,7 +6,13 @@ export default function About() {
         <Paper elevation={5} sx={{ margin: '3rem auto', padding: '3rem', width: '80%', maxWidth: '900px' }}>
             <h1>About Alex</h1>
             <Paper elevation={5} sx={{ margin: '1rem auto', width: 'min-content' }}>
-                <Image src={'/../public/aleximg.jpg'} alt={'Self portrait'} width={300} height={300} />
+                <Image 
+                    src={'/../public/aleximg.jpg'} 
+                    alt={'Self portrait'} 
+                    width={300} 
+                    height={300}
+                    unoptimized
+                />
             </Paper>
             <main className='bio-main'>
                 <h3 className='bio-headline'>Sometimes Alex asks her social media followers to give her Pokemon names as prompts...</h3> 
