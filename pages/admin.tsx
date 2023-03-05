@@ -1,10 +1,14 @@
-import { Box, Button, Input } from '@mui/material';
+import { Box, Button, Input, Paper } from '@mui/material';
+import Link from 'next/link';
 import { useState } from 'react';
+import Signin from '../components/nav/signin';
 import fetcher from '../lib/api';
 import { setToken } from '../lib/auth';
+import { useFetchUser } from '../lib/authContext';
 
 function Admin() {
-
+    
+    const { user, loading } = useFetchUser();
     const [data, setData] = useState({
         identifier: '',
         password: '',
@@ -38,35 +42,30 @@ function Admin() {
 
     return (
         <Box sx={{ width: '300px', height: '300px', margin: '2rem auto' }}>
-            <form onSubmit={ handleSubmit } className="form-inline">
-                <Input
-                    type="text"
-                    name="identifier"
-                    onChange={ handleChange }
-                    placeholder="Username"
-                    sx={{ width: '100%' }}
-                    required
-                />
-                <Input
-                    type="password"
-                    name="password"
-                    onChange={ handleChange }
-                    placeholder="Password"
-                    sx={{ width: '100%', marginTop: '.5rem' }}
-                    required
-                />
-                <Button
-                    variant='outlined'
-                    type="submit"
-                    sx={{ margin: '1rem auto' }}
+            {
+                !user ?
+                    <Signin handleChange={ handleChange } handleSubmit={ handleSubmit } />
+                :
+                <Paper elevation={5} sx={{ padding: '3rem', width: '80%', maxWidth: '500px' }}>
+                    <h3 className='success-heading'>
+                        Success!
+                    </h3>
+                    <p className='success-message'>
+                        You can now upload images to each individual monster page.
+                    </p>
+                    <p className='success-message'>
+                        Have fun!
+                    </p>
 
-                >
-                    Login
-                </Button>
-            </form>
+                    <Link href={'/monsters'}>
+                        <Button variant='outlined'>
+                            Go To Monsters
+                        </Button>
+                    </Link>
+                </Paper>
+            }
         </Box>
-
-  )
+    )
 }
 
 export default Admin;
