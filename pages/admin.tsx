@@ -1,7 +1,7 @@
 import { Box, Button, Input, Paper } from '@mui/material';
 import Link from 'next/link';
 import { useState } from 'react';
-import Signin from '../components/nav/signin';
+import Signin from '../components/nav/Signin';
 import fetcher from '../lib/api';
 import { setToken } from '../lib/auth';
 import { useFetchUser } from '../lib/authContext';
