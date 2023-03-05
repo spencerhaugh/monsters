@@ -22,7 +22,7 @@ export const UserProvider = ({ value, children }) => {
         if (!userState && user) {
             userState = user;
         }
-    }, []);
+    }, [user]);
 
     return (
         <UserContext.Provider value={ value }>

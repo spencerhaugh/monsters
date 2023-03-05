@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useRouter } from 'next/router'
 import { Avatar, Button, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';

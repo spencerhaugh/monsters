@@ -19,7 +19,7 @@ export const PageProvider = ({ value, children }) => {
         if (!pageState && page) {
             pageState = page;
         }
-    }, []);
+    }, [page]);
 
 
     return (
