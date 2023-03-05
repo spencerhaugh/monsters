@@ -7,10 +7,11 @@ export default function About() {
             <h1>About Alex</h1>
             <Paper elevation={5} sx={{ margin: '1rem auto', width: 'min-content' }}>
                 <Image 
-                    src={'/../public/aleximg.jpg'} 
+                    src={'/aleximg.jpg'} 
                     alt={'Self portrait'} 
-                    width={300} 
-                    height={300}
+                    width={250} 
+                    height={250}
+                    unoptimized
                     priority
                 />
             </Paper>

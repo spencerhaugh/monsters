@@ -44,8 +44,9 @@ const Nav = () => {
                             <Image 
                                 src={'/amm_logo_250x.png'} 
                                 alt="AMM Logo" 
-                                width={250} 
-                                height={53} 
+                                width={200} 
+                                height={45} 
+                                unoptimized
                                 priority
                             />
                         </Link>
@@ -56,11 +57,12 @@ const Nav = () => {
                     >
                         <Link href={'/'}>
                             <Image 
-                                src={'/../public/amm_logo_250x.png'} 
+                                src={'/amm_logo_250x.png'} 
                                 alt="AMM Logo" 
                                 width={250} 
                                 height={53} 
-                                priority={true} 
+                                unoptimized
+                                priority 
                             />
                         </Link>
                     </Box>
