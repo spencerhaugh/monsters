@@ -43,7 +43,8 @@ const Nav = () => {
                         <Link href={'/'}>
                             <Image 
                                 src={'/amm_logo_250x.png'} 
-                                alt="AMM Logo" 
+                                alt="AMM Logo"
+                                className='mobile-logo'
                                 width={200} 
                                 height={45} 
                                 priority
@@ -58,6 +59,7 @@ const Nav = () => {
                             <Image 
                                 src={'/amm_logo_250x.png'} 
                                 alt="AMM Logo" 
+                                className='desktop-logo'
                                 width={250} 
                                 height={53} 
                                 priority 

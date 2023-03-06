@@ -31,7 +31,7 @@ a {
 }
 
 .app.dark {
-  --background: #000;
+  --background: #121212;
 }
 
 .button-container {
@@ -66,6 +66,12 @@ a {
 .monster-detail-original-container {
   margin: 0 1rem;
   padding: 1.5rem;
+}
+
+@media (max-width: 475px) {
+  .mobile-logo {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {
