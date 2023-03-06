@@ -59,7 +59,7 @@ function Admin() {
 
                     <Link href={'/monsters'}>
                         <Button variant='outlined'>
-                            Go To Monsters
+                            Go To The Pokemon List
                         </Button>
                     </Link>
                 </Paper>

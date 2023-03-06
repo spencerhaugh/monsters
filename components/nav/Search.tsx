@@ -30,7 +30,7 @@ const Search = ({ monsters, handleSelectBySearch }) => {
                     renderInput={(params) => (
                         <TextField
                             {...params}
-                            label="Search monsters"
+                            label="Search pokemon"
                             InputProps={{
                                 ...params.InputProps,
                                 type: 'search',
@@ -47,4 +47,4 @@ const Search = ({ monsters, handleSelectBySearch }) => {
         )
 }
 
-export default Search
+export default Search;
