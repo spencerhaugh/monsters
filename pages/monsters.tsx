@@ -31,7 +31,7 @@ const MonstersList = ({ monsters }) => {
                 textAlign: 'center',
                 padding: '1rem'
             }}>
-                Pocket Monsters From Memory
+                Quickly Pokemon Drawn From Memory
             </Typography>
             <Search monsters={ searchListData.data } handleSelectBySearch={ handleSelectBySearch } />
             <div className="monster-nav-list">

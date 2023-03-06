@@ -1,6 +1,5 @@
 import { Box, Button } from '@mui/material'
 import Link from 'next/link'
-import pages from '../../pages'
 
 const BrowserLinks = ({ pages }) => {
     return (
@@ -11,7 +10,7 @@ const BrowserLinks = ({ pages }) => {
             {
                 pages.map((page) => (
                     <Link href={`${page.href}`} key={ page.title }>
-                        <Button className='nav-btn' variant='contained' color='info'>
+                        <Button variant='contained' color='info' sx={{ marginLeft: '1rem' }}>
                             { page.title }
                         </Button>
                     </Link>

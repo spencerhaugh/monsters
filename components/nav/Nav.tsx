@@ -14,7 +14,7 @@ const Nav = () => {
     const { user, loading } = useFetchUser();
     const { darkModeActive, switchToDarkMode, switchToLightMode } = useDarkMode();
 
-    const pages = [{ title: 'Monsters', href: '/monsters'}, { title: 'About Alex!', href: '/about' }];
+    const pages = [{ title: 'Pokemon List', href: '/monsters'}, { title: 'About Alex!', href: '/about' }];
 
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
@@ -46,7 +46,6 @@ const Nav = () => {
                                 alt="AMM Logo" 
                                 width={200} 
                                 height={45} 
-                                unoptimized
                                 priority
                             />
                         </Link>
@@ -61,33 +60,45 @@ const Nav = () => {
                                 alt="AMM Logo" 
                                 width={250} 
                                 height={53} 
-                                unoptimized
                                 priority 
                             />
                         </Link>
                     </Box>
-                    <BrowserLinks pages={ pages } />
-                    {
-                        !user ?
-                        <Link className='nav-admin-button' href={'/admin'}>
-                            <Button className='nav-btn' color="inherit" variant='outlined'>
-                                Admin
+                    <Box sx={{ padding: '1rem' }}>
+                        <BrowserLinks pages={ pages } />
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        {
+                            !user ?
+                            <Link className='nav-admin-button' href={'/admin'}>
+                                <Button 
+                                    color="inherit" 
+                                    variant='outlined' 
+                                    sx={{ marginLeft: '1rem' }}
+                                >
+                                    Admin
+                                </Button>
+                            </Link>
+                            : 
+                            <Button 
+                                color="inherit" 
+                                variant='outlined' 
+                                sx={{ marginLeft: '1rem' }} 
+                                onClick={() => unsetToken()}
+                            >
+                                Logout
                             </Button>
-                        </Link>
-                        : 
-                        <Button className='nav-btn' color="inherit" variant='outlined' onClick={() => unsetToken()}>
-                            Logout
-                        </Button>
-                    }
-                    <DarkModeToggle
-                        className='dark-mode-toggle'
-                        size={50}
-                        speed={2}
-                        checked={ darkModeActive }
-                        onChange={(isDarkMode) =>
-                            isDarkMode ? switchToDarkMode() : switchToLightMode()
                         }
-                    />
+                        <DarkModeToggle
+                            className='dark-mode-toggle'
+                            size={50}
+                            speed={2}
+                            checked={ darkModeActive }
+                            onChange={(isDarkMode) =>
+                                isDarkMode ? switchToDarkMode() : switchToLightMode()
+                            }
+                        />
+                    </Box>
                 </Toolbar>
             </AppBar>
         </Box>
