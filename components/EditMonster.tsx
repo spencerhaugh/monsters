@@ -29,11 +29,8 @@ const EditMonster = ({ monsterId }) => {
 
         axios.post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/upload`, formData)
             .then((response) => {
-                console.log(response.data[0])
                 const imageUrl = response.data[0].url;
                 const imageId = response.data[0].provider_metadata.public_id;
-                console.log("image URL", imageUrl)
-                console.log("Image ID", imageId)
 
                 fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters/${monsterId}`, { 
                     method: 'PUT',

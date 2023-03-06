@@ -25,8 +25,8 @@ const Search = ({ monsters, handleSelectBySearch }) => {
                     disableClearable
                     options={ monsters.data.map((monster) => monster.attributes.name) }
                     inputValue={ searchInputValue }
-                    onChange={ (event, newValue) => {setSearchValue(newValue); console.log(newValue) } }
-                    onInputChange={ (event, newInputValue) => {setSearchInputValue(newInputValue); console.log(newInputValue) } }
+                    onChange={ (event, newValue) => {setSearchValue(newValue)} }
+                    onInputChange={ (event, newInputValue) => {setSearchInputValue(newInputValue)} }
                     renderInput={(params) => (
                         <TextField
                             {...params}
