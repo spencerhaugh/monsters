@@ -1,4 +1,5 @@
 import { Link, Paper, Typography } from '@mui/material';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -6,14 +7,19 @@ export default function Home() {
           elevation={24}
           sx={{ 
             padding: '3rem', 
-            margin: 'auto', 
-            marginTop: '2rem',
+            margin: 'auto',
             width: 'min-content',
             background: 'rgba(25, 118, 210, .5)'
           }}
           >
+          <Typography variant='h2' sx={{ textAlign: 'center' }}>Poorly Drawn Pokemon From Memory</Typography>
           <Link href='/monsters'>
-            <Typography variant='h2'>Drawing Pokemon From Memory Without Reference</Typography>
+            <Image
+              src='/../public/poorly_drawn_pokemon_sheet.jpg'
+              alt=''
+              width={650}
+              height={970}
+            ></Image>
           </Link>
         </Paper>
   )

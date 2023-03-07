@@ -2,6 +2,7 @@
 
 :root {
   --primary-color: #1976d2;
+  --background: #fff;
 }
 
 * {
@@ -26,7 +27,6 @@ a {
 }
 
 .app {
-  --background: #fff;
   background-color: var(--background);
 }
 

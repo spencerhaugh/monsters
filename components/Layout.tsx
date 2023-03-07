@@ -9,7 +9,7 @@ const Layout = ({ user, darkModeActive, loading = false, children }) => {
             <UserProvider value={{ user, loading }}>
                 <Head>
                     <title>Alex Draws Pokemon</title>
-                    <meta name="description" content="Quickly drawn Pokemon from memory without reference" />
+                    <meta name="description" content="Poorly drawn Pokemon from memory without reference" />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
@@ -18,8 +18,9 @@ const Layout = ({ user, darkModeActive, loading = false, children }) => {
                 <main className='px-4'>
                     <Paper sx={{
                         width: '100vw',
-                        height: '100vh',
+                        height: 'min-content',
                         margin: 'auto',
+                        padding: '2rem'
                     }}>
                         { children }
                     </Paper>

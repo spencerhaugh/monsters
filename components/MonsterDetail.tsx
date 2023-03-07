@@ -19,7 +19,7 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
     }
 
     return (
-        <Paper elevation={3} sx={{ margin: '2rem auto', padding: '2rem', width: 'fit-content', maxWidth: '100vw', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Paper elevation={3} sx={{ margin: '1rem auto', padding: '2rem', width: 'fit-content', maxWidth: '100vw', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div className='monster-detail-art-container'>
                 { monster.attributes.imageUrl ? 
                     <Paper elevation={5} className='monster-detail-memory-container'>
