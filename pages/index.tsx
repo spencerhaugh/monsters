@@ -6,22 +6,25 @@ export default function Home() {
         <Paper 
           elevation={24}
           sx={{ 
-            padding: '3rem', 
+            padding: '2rem',
             margin: 'auto',
             width: 'min-content',
             background: 'rgba(25, 118, 210, .5)'
           }}
+        >
+          <Typography 
+            className='hero-text'
+            variant='h2' 
+            sx={{ textAlign: 'center' }}
           >
-          <Typography variant='h2' sx={{ textAlign: 'center' }}>Poorly Drawn Pokemon From Memory</Typography>
+            Poorly Drawn Pokemon From Memory
+          </Typography>
           <Link href='/monsters'>
-            <Image
+            <img
               src={'/poorly_drawn_pokemon_sheet.jpg'}
               alt={'A collection of poorly drawn Pokemon'}
-              width={650}
-              height={970}
-              unoptimized
-              priority
-            ></Image>
+              className='hero-image'
+            ></img>
           </Link>
         </Paper>
   )

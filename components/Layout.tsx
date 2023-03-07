@@ -15,15 +15,8 @@ const Layout = ({ user, darkModeActive, loading = false, children }) => {
                 </Head>
 
                 <Nav />
-                <main className='px-4'>
-                    <Paper sx={{
-                        width: '100vw',
-                        height: 'min-content',
-                        margin: 'auto',
-                        padding: '2rem'
-                    }}>
-                        { children }
-                    </Paper>
+                <main className='app-main'>
+                    { children }
                 </main>
             </UserProvider>
         </div>

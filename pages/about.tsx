@@ -16,6 +16,14 @@ export default function About() {
                 />
             </Paper>
             <main className='bio-main'>
+                <Image 
+                        src={'/amm_logo_250x.png'} 
+                        alt="AMM Logo"
+                        className='mobile-logo'
+                        width={200} 
+                        height={45} 
+                        priority
+                />
                 <h3 className='bio-headline'>Sometimes Alex asks her social media followers to give her Pokemon names as prompts...</h3> 
                 <section className='bio-body'>
                     <p>Then, as a drawing exercise, she attempts to recreate them as best she can from memory, without looking up any reference image. Usually adhering a time limit of 20 minutes or so.</p>
