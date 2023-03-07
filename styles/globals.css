@@ -69,6 +69,16 @@ a {
   padding: 2rem;
 }
 
+.monster-detail-main {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  max-width: 100%;
+  width: fit-content; 
+  margin: 1rem auto; 
+  padding: 2rem;
+}
+
 .monster-detail-art-container {
   display: flex;
   flex-direction: row;
@@ -79,32 +89,6 @@ a {
 .monster-detail-original-container {
   margin: 0 1rem;
   padding: 1.5rem;
-}
-
-@media (max-width: 900px) {
-  .monster-detail-art-container {
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-  }
-  .monster-detail-memory-container,
-  .monster-detail-original-container {
-    max-width: 100vw;
-    margin: 0;
-    padding: 2.5rem;
-  }
-
-  .monster-detail-info {
-    max-width: 100vw;
-    margin-top: 1rem;
-    padding: 2rem 5rem;
-  }
-  .hero-image {
-    height: 600px;
-  }
-  .hero-text {
-    font-size: 2rem;
-  }
 }
 
 .monster-detail-info {
@@ -137,6 +121,80 @@ a {
   width: 100%;
 }
 
+.edit-options-container {
+  margin-top: 1rem;
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-around; 
+  width: 100%;
+}
+
+.edit-monster-form {
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+
+.file-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: .5rem;
+}
+
+.about-main {
+  margin: 3rem auto; 
+  padding: 3rem; 
+  width: 80%; 
+  max-width: 900px;
+}
+
+.bio-main {
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 70%;
+}
+.bio-headline {
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}
+.bio-body {
+  line-height: 1.3;
+  letter-spacing: 1px;
+}
+
+.success-heading, .success-message {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .monster-detail-art-container {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+  .monster-detail-memory-container,
+  .monster-detail-original-container {
+    max-width: 100vw;
+    margin: 0;
+    padding: 2.5rem;
+  }
+
+  .monster-detail-info {
+    max-width: 100vw;
+    margin-top: 1rem;
+    padding: 2rem 5rem;
+  }
+  .hero-image {
+    height: 600px;
+  }
+  .hero-text {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 600px) {
   .search-container {
     flex-direction: column;
@@ -163,51 +221,21 @@ a {
   .mobile-logo {
     display: none;
   }
+  .about-main { 
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+  .monster-detail-main {
+    padding: 1rem;
+  }
+  .monster-detail-memory-container,
+  .monster-detail-original-container {
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 450px) {
   .logo-mobile-layout, .logo-desktop-layout {
     display: none;
   }
-}
-
-.edit-options-container {
-  margin-top: 1rem;
-  display: flex; 
-  flex-direction: row;
-  justify-content: space-around; 
-  width: 100%;
-}
-
-.edit-monster-form {
-  margin-top: 2rem;
-  padding-top: 2rem;
-}
-
-.file-name {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: .5rem;
-}
-
-.bio-main {
-  margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  width: 70%;
-}
-.bio-headline {
-  margin-top: 1rem;
-  margin-bottom: .5rem;
-}
-.bio-body {
-  line-height: 1.3;
-  letter-spacing: 1px;
-}
-
-.success-heading, .success-message {
-  margin-bottom: 1rem;
 }

@@ -3,7 +3,7 @@ import { Paper } from '@mui/material';
 
 export default function About() {
     return (
-        <Paper elevation={5} sx={{ margin: '3rem auto', padding: '3rem', width: '80%', maxWidth: '900px' }}>
+        <Paper className='about-main' elevation={5}>
             <h1>About Alex</h1>
             <Paper elevation={5} sx={{ margin: '1rem auto', width: 'min-content' }}>
                 <Image 
