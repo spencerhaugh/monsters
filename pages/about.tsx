@@ -11,7 +11,6 @@ export default function About() {
                     alt={'Self portrait'} 
                     width={250} 
                     height={250}
-                    unoptimized
                     priority
                 />
             </Paper>

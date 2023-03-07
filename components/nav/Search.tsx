@@ -18,7 +18,7 @@ const Search = ({ monsters, handleSelectBySearch }) => {
 
     return (
         <form className='search-container' onSubmit={ handleSubmit }>
-            <Stack spacing={2} sx={{ width: 400 }}>
+            <Stack spacing={2} className='search-element'>
                 <Autocomplete
                     id="nav-search"
                     className='search-field'

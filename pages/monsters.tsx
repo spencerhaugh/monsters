@@ -29,7 +29,7 @@ const MonstersList = ({ monsters }) => {
                 fontWeight: 'bold', 
                 textTransform: 'uppercase',
                 textAlign: 'center',
-                padding: '1rem'
+                padding: '1rem',
             }}>
                 Poorly Drawn Pokemon From Memory
             </Typography>
