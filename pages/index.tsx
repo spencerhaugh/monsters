@@ -15,10 +15,12 @@ export default function Home() {
           <Typography variant='h2' sx={{ textAlign: 'center' }}>Poorly Drawn Pokemon From Memory</Typography>
           <Link href='/monsters'>
             <Image
-              src='/../public/poorly_drawn_pokemon_sheet.jpg'
-              alt=''
+              src={'/poorly_drawn_pokemon_sheet.jpg'}
+              alt={'A collection of poorly drawn Pokemon'}
               width={650}
               height={970}
+              unoptimized
+              priority
             ></Image>
           </Link>
         </Paper>
