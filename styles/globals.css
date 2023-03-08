@@ -43,8 +43,8 @@ a {
 
 .hero-image {
   padding-top: 2rem;
-  display: flex;
-  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
   height: 970px;
 }
 
@@ -152,10 +152,7 @@ a {
 
 .bio-main {
   margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
-  width: 80%;
 }
 .bio-headline {
   margin-top: 1rem;
