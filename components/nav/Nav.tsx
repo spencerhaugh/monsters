@@ -14,7 +14,7 @@ const Nav = () => {
     const { user, loading } = useFetchUser();
     const { darkModeActive, switchToDarkMode, switchToLightMode } = useDarkMode();
 
-    const pages = [{ title: 'Pokemon List', href: '/monsters'}, { title: 'About Alex!', href: '/about' }];
+    const pages = [{ title: 'Pokemon List', href: '/'}, { title: 'About Alex!', href: '/about' }];
 
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
