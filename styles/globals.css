@@ -185,6 +185,10 @@ a {
     padding: 2.5rem;
   }
 
+  .memory-artwork {
+    width: 300px;
+  }
+
   .monster-detail-info {
     max-width: 100vw;
     margin-top: 1rem;

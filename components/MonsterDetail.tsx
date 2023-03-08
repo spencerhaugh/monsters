@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import { useRouter } from 'next/router'
 import { Avatar, Button, Typography } from '@mui/material';
@@ -26,12 +27,11 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                         <Typography variant='h6' sx={{ margin: '1rem' }}>
                             From memory
                         </Typography>
-                            <Image 
-                                src={ `${ photoCloudRepo }${ monster.attributes.imageId }.png` }
-                                alt={ monster.attributes.name }
-                                width={300} 
-                                height={300} 
-                            />
+                        <img 
+                            className='memory-artwork'
+                            src={ `${ photoCloudRepo }${ monster.attributes.imageId }.png` }
+                            alt={ monster.attributes.name } 
+                        />
                     </Paper> : ''
                 }
                 <Paper elevation={5} className='monster-detail-original-container'>
@@ -39,7 +39,12 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                         Official Artwork
                     </Typography>
                     <Image 
-                        src={ monsterDetails.sprites.other.dream_world.front_default } 
+                        src={ 
+                                monsterDetails.sprites.other.dream_world.front_default || 
+                                monsterDetails.sprites.other.home.front_default ||
+                                monsterDetails.sprites.front_default ||
+                                '/missingImage.jpg'
+                            } 
                         alt={ monster.attributes.name } 
                         width={300} 
                         height={300}
