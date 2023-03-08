@@ -18,7 +18,6 @@ export default function About() {
                 <Image 
                         src={'/amm_logo_250x.png'} 
                         alt="AMM Logo"
-                        className='mobile-logo'
                         width={200} 
                         height={45} 
                         priority
