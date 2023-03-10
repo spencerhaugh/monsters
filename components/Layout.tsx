@@ -1,4 +1,3 @@
-import Paper from '@mui/material/Paper';
 import Head from 'next/head';
 import Nav from './nav/Nav';
 import { UserProvider } from '../lib/authContext';

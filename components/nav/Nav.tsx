@@ -26,6 +26,10 @@ const Nav = () => {
         setAnchorElNav(null);
     };
 
+    const handleThemeChange = (isDarkMode) => {
+        isDarkMode ? switchToDarkMode() : switchToLightMode();
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -96,9 +100,7 @@ const Nav = () => {
                             size={50}
                             speed={2}
                             checked={ darkModeActive }
-                            onChange={(isDarkMode) =>
-                                isDarkMode ? switchToDarkMode() : switchToLightMode()
-                            }
+                            onChange={(isDarkMode) => handleThemeChange(isDarkMode)}
                         />
                     </Box>
                 </Toolbar>

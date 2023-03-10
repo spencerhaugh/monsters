@@ -172,6 +172,18 @@ a {
   margin-bottom: 1rem;
 }
 
+.error-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold; 
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem;
+  color: grey;
+}
+
 @media (max-width: 900px) {
   .monster-detail-art-container {
     flex-direction: column;
