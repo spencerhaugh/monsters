@@ -57,7 +57,7 @@ function Admin() {
                         Have fun!
                     </p>
 
-                    <Link href={'/monsters'}>
+                    <Link href={'/'}>
                         <Button variant='outlined'>
                             Go To The Pokemon List
                         </Button>
