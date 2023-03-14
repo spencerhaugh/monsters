@@ -11,8 +11,21 @@ const Monster = ({ monster, monsterDetails }) => {
 export async function getServerSideProps({ params }) {
     const { monster } = params;
     const monstersStrapiResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/monsters/${monster}`);
+    let pokemonApiResponse;
+    
+    try {
+        pokemonApiResponse = await fetcher(`https://pokeapi.co/api/v2/pokemon/${monster}`)
+    } catch {
+        return {
+            notFound: true,
+        }
+    }
 
-    const pokemonApiResponse = await fetcher(`https://pokeapi.co/api/v2/pokemon/${monster}`);
+    if (!monstersStrapiResponse || !pokemonApiResponse) {
+        return {
+            notFound: true,
+        }
+    }
 
     return {
         props: {
