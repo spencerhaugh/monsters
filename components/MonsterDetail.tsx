@@ -8,6 +8,9 @@ import { useFetchUser } from '../lib/authContext';
 import { useState } from 'react';
 import EditMonster from './EditMonster';
 import { photoCloudRepo } from '../utils/utils';
+import Link from 'next/link';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const MonsterDetail = ({ monster, monsterDetails }) => {
 
@@ -70,7 +73,12 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                 </ul>
             </section>
             <div className='edit-options-container'>
-                <Button variant='outlined' onClick={() => router.back()}>Back</Button>
+                <Link href={''+(monster.id - 1)}>
+                    <Button variant='outlined' startIcon={<ChevronLeftIcon/>}>Prev</Button>
+                </Link>
+                <Link href={'/'}>
+                    <Button variant='outlined'>Full List</Button>
+                </Link>
                 {
                     user &&
                     <Button 
@@ -81,6 +89,9 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                         { showEditForm ? 'Cancel' : 'Add Art' }
                     </Button> 
                 }
+                <Link href={''+(monster.id + 1)}>
+                    <Button variant='outlined' endIcon={<ChevronRightIcon/>}>Next</Button>
+                </Link>
             </div>
             {
                 showEditForm &&
