@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
-import { useRouter } from 'next/router'
 import { Avatar, Button, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Image from 'next/image';
@@ -14,12 +13,32 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const MonsterDetail = ({ monster, monsterDetails }) => {
 
-    const router = useRouter();
     const { user } = useFetchUser();
     const [ showEditForm, setShowEditForm ] = useState(false);
+
+    const startOfMonsterList: boolean = monster.id === 1;
+    const endOfMonsterList: boolean = monster.id === 904;
     
     const handleEditButtonClick = () => {
         setShowEditForm(!showEditForm);
+    }
+
+    const decrementPage = () => {
+        let pageNum: string;
+        if (startOfMonsterList) {
+            return '1';
+        }
+        pageNum = (monster.id - 1).toString();
+        return pageNum;
+    }
+
+    const incrementPage = () => {
+        let pageNum: string;
+        if (endOfMonsterList) {
+            return '904';
+        }
+        pageNum = (monster.id + 1).toString();
+        return pageNum;
     }
 
     return (
@@ -28,7 +47,7 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                 { monster.attributes.imageUrl ? 
                     <Paper elevation={5} className='monster-detail-memory-container'>
                         <Typography variant='h6' sx={{ margin: '1rem' }}>
-                            From memory
+                            Poorly drawn from memory
                         </Typography>
                         <img 
                             className='memory-artwork'
@@ -73,11 +92,21 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                 </ul>
             </section>
             <div className='edit-options-container'>
-                <Link href={''+(monster.id - 1)}>
-                    <Button variant='outlined' startIcon={<ChevronLeftIcon/>}>Prev</Button>
-                </Link>
+                { 
+                    !startOfMonsterList && 
+                    <Link href={decrementPage()}>
+                        <Button 
+                            variant='outlined' 
+                            className='prevNextBtn'
+                            startIcon={<ChevronLeftIcon/>} 
+                            disabled={startOfMonsterList}
+                        >
+                            Prev
+                        </Button>
+                    </Link>
+                }
                 <Link href={'/'}>
-                    <Button variant='outlined'>Full List</Button>
+                    <Button variant='contained'>Full List</Button>
                 </Link>
                 {
                     user &&
@@ -89,9 +118,19 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                         { showEditForm ? 'Cancel' : 'Add Art' }
                     </Button> 
                 }
-                <Link href={''+(monster.id + 1)}>
-                    <Button variant='outlined' endIcon={<ChevronRightIcon/>}>Next</Button>
-                </Link>
+                { 
+                    !endOfMonsterList && 
+                    <Link href={incrementPage()}>
+                        <Button 
+                            variant='outlined' 
+                            className='prevNextBtn'
+                            endIcon={<ChevronRightIcon/>} 
+                            disabled={endOfMonsterList}
+                        >
+                            Next
+                        </Button>
+                    </Link>
+                }
             </div>
             {
                 showEditForm &&
