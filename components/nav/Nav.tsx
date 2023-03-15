@@ -4,8 +4,8 @@ import DarkModeToggle from 'react-dark-mode-toggle';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useFetchUser } from '../../lib/authContext';
-import { unsetToken } from '../../lib/auth';
+import { useFetchUser } from '@lib/authContext';
+import { unsetToken } from '@lib/auth';
 import { useState } from 'react';
 import MobileLinks from './MobileLinks';
 import BrowserLinks from './BrowserLinks';

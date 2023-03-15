@@ -1,8 +1,8 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { createTheme, ThemeProvider } from '@mui/material';
-import Layout from '../components/Layout';
-import { useFetchUser } from '../lib/authContext';
+import Layout from '@components/Layout';
+import { useFetchUser } from '@lib/authContext';
 import withDarkMode, { useDarkMode } from 'next-dark-mode';
 
 function App({ Component, pageProps }: AppProps) {

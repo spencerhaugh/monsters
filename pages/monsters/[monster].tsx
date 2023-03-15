@@ -1,5 +1,5 @@
-import MonsterDetail from '../../components/MonsterDetail';
-import fetcher from '../../lib/api';
+import MonsterDetail from '@components/MonsterDetail';
+import fetcher from '@lib/api';
 
 
 const Monster = ({ monster, monsterDetails }) => {

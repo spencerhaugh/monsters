@@ -1,11 +1,11 @@
-import fetcher from '../lib/api';
-import useSwr from 'swr';
-import Monsters from '../components/Monsters';
-import { Paper, Typography } from '@mui/material';
-import Pagination from '../components/Pagination';
-import usePageIndexState from '../hooks/pageIndex';
-import Search from '../components/nav/Search';
 import Router from 'next/router';
+import fetcher from '@lib/api';
+import usePageIndexState from '@hooks/pageIndex';
+import useSwr from 'swr';
+import Monsters from '@components/Monsters';
+import { Paper, Typography } from '@mui/material';
+import Pagination from '@components/Pagination';
+import Search from '@components/nav/Search';
 
 
 const MonstersList = ({ monsters }) => {    

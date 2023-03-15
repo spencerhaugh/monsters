@@ -1,4 +1,4 @@
-import fetcher from '../../lib/api';
+import fetcher from '@lib/api';
 
 module.exports = async (req, res) => {
     const { data } = await fetcher('https://pokeapi.co/api/v2/pokemon?limit=1&offset=3');

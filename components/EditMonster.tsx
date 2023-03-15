@@ -1,6 +1,6 @@
 import Router from 'next/router';
 import { useState } from 'react';
-import fetcher from '../lib/api';
+import fetcher from '@lib/api';
 import axios from 'axios'
 import UploadForm from './UploadForm';
 import UploadFileConfirm from './UploadFileConfirm';

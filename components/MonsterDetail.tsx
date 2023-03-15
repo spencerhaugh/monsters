@@ -3,10 +3,10 @@
 import { Avatar, Button, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Image from 'next/image';
-import { useFetchUser } from '../lib/authContext';
+import { useFetchUser } from '@lib/authContext';
 import { useState } from 'react';
 import EditMonster from './EditMonster';
-import { photoCloudRepo } from '../utils/utils';
+import { photoCloudRepo } from '@utils/utils';
 import Link from 'next/link';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';

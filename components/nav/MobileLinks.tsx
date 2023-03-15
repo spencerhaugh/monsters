@@ -1,7 +1,6 @@
 import { Box, IconButton, Menu, MenuItem, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
-import pages from '../../pages';
 
 const MobileLinks = ({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu, pages }) => {
     return (

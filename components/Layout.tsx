@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Nav from './nav/Nav';
-import { UserProvider } from '../lib/authContext';
+import { UserProvider } from '@lib/authContext';
 
 const Layout = ({ user, darkModeActive, loading = false, children }) => {
     return (

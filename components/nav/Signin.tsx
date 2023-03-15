@@ -1,6 +1,6 @@
 import { Box, Input, Button } from '@mui/material';
 import React from 'react'
-import { useFetchUser } from '../../lib/authContext';
+import { useFetchUser } from '@lib/authContext';
 
 const Signin = ({ handleChange, handleSubmit }) => {
     const { user, loading } = useFetchUser();

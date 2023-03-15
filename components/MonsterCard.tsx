@@ -1,5 +1,5 @@
 import { Card, CardActionArea, CardMedia, CardContent, Typography, Skeleton } from '@mui/material'
-import fetcher from '../lib/api';
+import fetcher from '@lib/api';
 import useSwr from 'swr';
 
 
