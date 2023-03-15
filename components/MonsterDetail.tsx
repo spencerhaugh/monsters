@@ -100,6 +100,7 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                             className='prevNextBtn'
                             startIcon={<ChevronLeftIcon/>} 
                             disabled={startOfMonsterList}
+                            onClick={ () => setShowEditForm(false) }
                         >
                             Prev
                         </Button>
@@ -126,6 +127,7 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                             className='prevNextBtn'
                             endIcon={<ChevronRightIcon/>} 
                             disabled={endOfMonsterList}
+                            onClick={ () => setShowEditForm(false) }
                         >
                             Next
                         </Button>
