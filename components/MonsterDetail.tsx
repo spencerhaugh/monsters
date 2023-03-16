@@ -1,15 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
-import { Avatar, Button, Typography } from '@mui/material';
-import Paper from '@mui/material/Paper';
 import Image from 'next/image';
-import { useFetchUser } from '@lib/authContext';
-import { useState } from 'react';
-import EditMonster from './EditMonster';
-import { photoCloudRepo } from '@utils/utils';
 import Link from 'next/link';
+import { useState } from 'react';
+import { useFetchUser } from '@lib/authContext';
+import Paper from '@mui/material/Paper';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { Button, Typography } from '@mui/material';
+import EditMonster from './EditMonster';
+import MonsterStats from './MonsterStats';
+import { photoCloudRepo } from '@utils/utils';
 
 const MonsterDetail = ({ monster, monsterDetails }) => {
 
@@ -44,7 +45,7 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
     return (
         <Paper elevation={3} className='monster-detail-main'>
             <div className='monster-detail-art-container'>
-                { monster.attributes.imageUrl ? 
+                { monster.attributes.imageUrl && 
                     <Paper elevation={5} className='monster-detail-memory-container'>
                         <Typography variant='h6' sx={{ margin: '1rem' }}>
                             Poorly drawn from memory
@@ -54,7 +55,7 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                             src={ `${ photoCloudRepo }${ monster.attributes.imageId }.png` }
                             alt={ monster.attributes.name } 
                         />
-                    </Paper> : ''
+                    </Paper>
                 }
                 <Paper elevation={5} className='monster-detail-original-container'>
                     <Typography variant='h6' sx={{ margin: '1rem' }}>
@@ -75,22 +76,9 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                     </Image>
                 </Paper>
             </div>
-            <section className='monster-detail-info'>
-                <div className='monster-detail-title' 
-                    style={{ 'display': 'flex', 'flexDirection': 'row', 'justifyContent': 'center', 'alignItems': 'center' }}
-                    >
-                    <Avatar src={ monsterDetails.sprites.front_default } sx={{ width: 70, height: 70 }} />
-                    <h3 style={{ margin: '1rem' }}>It's { monster.attributes.name }! </h3>
-                </div>
-                <ul className='monster-detail-stats'>
-                    <li>
-                        Height: { monsterDetails.height / 10 } meter(s)
-                    </li>
-                    <li>
-                        Weight: { monsterDetails.weight / 10 } kg
-                    </li>
-                </ul>
-            </section>
+
+            <MonsterStats monster={ monster } monsterDetails={ monsterDetails } />
+
             <div className='edit-options-container'>
                 { 
                     !startOfMonsterList && 
@@ -98,8 +86,8 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                         <Button 
                             variant='outlined' 
                             className='prevNextBtn'
-                            startIcon={<ChevronLeftIcon/>} 
-                            disabled={startOfMonsterList}
+                            startIcon={ <ChevronLeftIcon/> } 
+                            disabled={ startOfMonsterList }
                             onClick={ () => setShowEditForm(false) }
                         >
                             Prev
@@ -125,8 +113,8 @@ const MonsterDetail = ({ monster, monsterDetails }) => {
                         <Button 
                             variant='outlined' 
                             className='prevNextBtn'
-                            endIcon={<ChevronRightIcon/>} 
-                            disabled={endOfMonsterList}
+                            endIcon={ <ChevronRightIcon/> } 
+                            disabled={ endOfMonsterList }
                             onClick={ () => setShowEditForm(false) }
                         >
                             Next
