@@ -2,6 +2,9 @@
 .env.*
 .env
 
+# ide
+/.idea
+
 # dependencies
 /node_modules
 /.pnp
