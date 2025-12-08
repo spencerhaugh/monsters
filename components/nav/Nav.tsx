@@ -1,6 +1,5 @@
 import { Box, AppBar, Toolbar, Button } from '@mui/material';
 import { useDarkMode } from 'next-dark-mode';
-// import DarkModeToggle from 'react-dark-mode-toggle';
 
 import Link from 'next/link';
 import Image from 'next/image';
