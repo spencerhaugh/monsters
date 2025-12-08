@@ -1,14 +1,20 @@
 import { Box, AppBar, Toolbar, Button } from '@mui/material';
 import { useDarkMode } from 'next-dark-mode';
-import DarkModeToggle from 'react-dark-mode-toggle';
+// import DarkModeToggle from 'react-dark-mode-toggle';
 
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { useFetchUser } from '@lib/authContext';
 import { unsetToken } from '@lib/auth';
 import { useState } from 'react';
 import MobileLinks from './MobileLinks';
 import BrowserLinks from './BrowserLinks';
+
+const DarkModeToggle = dynamic(
+    () => import('react-dark-mode-toggle'),
+    { ssr: false }
+);
 
 const Nav = () => {
     const { user, loading } = useFetchUser();
